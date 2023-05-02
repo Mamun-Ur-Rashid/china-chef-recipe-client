@@ -29,7 +29,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-accent justify-center ">Login</button>
                         </div>
-                        <p><small>Have a Account? Please</small> <Link to='/register'><button className='link link-accent'>Register</button></Link></p>
+                        <p><small>Have an Account? Please</small> <Link to='/register'><button className='link link-accent'>Register</button></Link></p>
                     </form>
                     <div className='flex gap-4 pb-4'>
                         <button className=" inline-flex items-center gap-2  border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5 ml-7"><FaGoogle></FaGoogle>  Google Login</button>
