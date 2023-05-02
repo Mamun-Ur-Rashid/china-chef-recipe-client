@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {FaGoogle, FaGithub} from 'react-icons/fa';
+import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
+    const {user, signInUser,signInWithGoogle } = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        setError('');
+        setSuccess('');
+
+        signInUser(email, password)
+        .then(result => {
+            const loginUser = result.user;
+            console.log(loginUser);
+            setSuccess("User Successfully login!!");
+            form.reset();
+        })
+        .catch(error => {
+            console.log(error.message);
+            setError(error.message);
+        })
+    }
+    const handleSignInGoogle = () =>{
+        signInWithGoogle()
+        .then(result => {
+            const signInUser = result.user;
+            console.log(signInUser);
+        })
+        .catch(error => {
+            setError(error.message);
+        })
+    }
+   
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-col">
@@ -10,7 +47,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Please Login!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-[650px] max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={""} className="card-body">
+                    <form onSubmit={handleSignIn} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -24,7 +61,10 @@ const Login = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <p className='text-success text-2xl'>
-
+                            {success}
+                        </p>
+                        <p className='text-amber-700 text-2xl'>
+                            {error}
                         </p>
                         <div className="form-control mt-6">
                             <button className="btn btn-accent justify-center ">Login</button>
@@ -32,7 +72,7 @@ const Login = () => {
                         <p><small>Have an Account? Please</small> <Link to='/register'><button className='link link-accent'>Register</button></Link></p>
                     </form>
                     <div className='flex gap-4 pb-4'>
-                        <button className=" inline-flex items-center gap-2  border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5 ml-7"><FaGoogle></FaGoogle>  Google Login</button>
+                        <button onClick={handleSignInGoogle} className=" inline-flex items-center gap-2  border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5 ml-7"><FaGoogle></FaGoogle>  Google Login</button>
                         <button className="inline-flex items-center gap-2 border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5"><small><FaGithub></FaGithub></small> GitHub Login</button>
                     </div>
                 </div>
