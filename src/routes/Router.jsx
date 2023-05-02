@@ -2,6 +2,8 @@
 import {createBrowserRouter } from 'react-router-dom';
 import Main from '../layouts/Main';
 import Home from '../pages/home/Home';
+import Register from '../pages/Register';
+import Login from '../pages/Login';
 
 
 
@@ -13,6 +15,14 @@ import Home from '../pages/home/Home';
                 {
                     path:'/',
                     element:<Home></Home>
+                },
+                {
+                    path:'/register',
+                    element: <Register></Register>
+                },
+                {
+                    path:'/login',
+                    element: <Login></Login>
                 }
             ]
         }

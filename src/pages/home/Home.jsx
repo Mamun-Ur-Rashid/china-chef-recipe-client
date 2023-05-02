@@ -12,7 +12,7 @@ const Home = () => {
                 console.log(error);
             })
             console.log(allData)
-    }, [])
+    }, []) 
     return (
         <div className='my-container'>
             <div className='flex md:flex-row gap-4 justify-center items-center'>
@@ -36,7 +36,7 @@ const Home = () => {
                                 <p>Number of Recipes: {data.numberOfRecipes}</p>
                                 <p>Rating: {data.rating}</p>
                                 <div className="card-actions">
-                                    <button className="btn btn-primary w-full">View Recipes</button>
+                                    <button className="btn btn-primary w-full justify-center">View Recipes</button>
                                 </div>
                             </div>
                         </div>

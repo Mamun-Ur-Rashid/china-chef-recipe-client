@@ -12,6 +12,7 @@ const Header = () => {
                     <ul className='flex md:flex-row flex-col md:items-center gap-[4vw] text-xl'>
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
+                        <li><NavLink to='/login'>Login</NavLink></li>
                     </ul>
                 </div>
             </nav>
