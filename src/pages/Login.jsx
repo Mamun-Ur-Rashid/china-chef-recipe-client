@@ -4,7 +4,7 @@ import {FaGoogle, FaGithub} from 'react-icons/fa';
 import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
-    const {user, signInUser,signInWithGoogle } = useContext(AuthContext);
+    const {user, signInUser,signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
@@ -39,7 +39,16 @@ const Login = () => {
             setError(error.message);
         })
     }
-   
+   const handleSignInGithub = () => {
+    signInWithGithub()
+    .then(result => {
+        const signUser = result.user;
+        console.log(signUser);
+    })
+    .catch(error => {
+        setError(error.message);
+    })
+   }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-col">
@@ -73,7 +82,7 @@ const Login = () => {
                     </form>
                     <div className='flex gap-4 pb-4'>
                         <button onClick={handleSignInGoogle} className=" inline-flex items-center gap-2  border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5 ml-7"><FaGoogle></FaGoogle>  Google Login</button>
-                        <button className="inline-flex items-center gap-2 border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5"><small><FaGithub></FaGithub></small> GitHub Login</button>
+                        <button onClick={handleSignInGithub} className="inline-flex items-center gap-2 border-2 border-cyan-400 rounded p-2 hover:bg-cyan-300 w-2/5"><small><FaGithub></FaGithub></small> GitHub Login</button>
                     </div>
                 </div>
             </div>
