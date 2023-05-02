@@ -11,6 +11,7 @@ const Home = () => {
             .catch(error => {
                 console.log(error);
             })
+            console.log(allData)
     }, [])
     return (
         <div className='my-container'>
@@ -24,7 +25,24 @@ const Home = () => {
                     <img src={chefs} alt="" />
                 </div>
             </div>
-            
+            <div className='grid md:grid-cols-3 gap-4 mt-12'>
+                {
+                    allData.map(data => <div key={data.id}>
+                        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                            <figure><img src={data.chefPicture} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">Chef Name: {data.chefName}</h2>
+                                <p>Experience: {data.yearsOfExperience} Years</p>
+                                <p>Number of Recipes: {data.numberOfRecipes}</p>
+                                <p>Rating: {data.rating}</p>
+                                <div className="card-actions">
+                                    <button className="btn btn-primary w-full">View Recipes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>)
+                }
+            </div>
         </div>
     );
 };
