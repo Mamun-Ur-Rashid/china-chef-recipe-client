@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import ViewChef from '../layouts/ViewChef';
 import ChefRecipeDetails from '../pages/chefDetails/ChefRecipeDetails';
 import ErrorPage from '../pages/errorPage/ErrorPage';
+import Blog from '../pages/blog/Blog';
 
 
 
@@ -19,6 +20,10 @@ import ErrorPage from '../pages/errorPage/ErrorPage';
                 {
                     path:'/',
                     element:<Home></Home>
+                },
+                {
+                    path:'/blog',
+                    element: <Blog></Blog>
                 },
                 {
                     path:'/register',
