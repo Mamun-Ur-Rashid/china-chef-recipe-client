@@ -8,6 +8,7 @@ import ViewChef from '../layouts/ViewChef';
 import ChefRecipeDetails from '../pages/chefDetails/ChefRecipeDetails';
 import ErrorPage from '../pages/errorPage/ErrorPage';
 import Blog from '../pages/blog/Blog';
+import PrivateRouter from './PrivateRouter';
 
 
 
@@ -42,7 +43,7 @@ import Blog from '../pages/blog/Blog';
             children:[
                 {
                     path:':id',
-                    element: <ChefRecipeDetails></ChefRecipeDetails>,
+                    element: <PrivateRouter><ChefRecipeDetails></ChefRecipeDetails></PrivateRouter>,
                     loader: ({params}) => fetch(`http://localhost:5000/allData/${params.id}`)
                 }
             ]

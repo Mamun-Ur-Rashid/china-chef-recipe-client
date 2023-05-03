@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {FaGoogle, FaGithub} from 'react-icons/fa';
 import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
-    const {user, signInUser,signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const {signInUser,signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const navigate = useNavigate('')
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
@@ -22,6 +23,7 @@ const Login = () => {
             const loginUser = result.user;
             console.log(loginUser);
             setSuccess("User Successfully login!!");
+            navigate('/');
             form.reset();
         })
         .catch(error => {
@@ -50,7 +52,7 @@ const Login = () => {
     })
    }
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen  my-container">
             <div className="hero-content flex-col lg:flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Please Login!</h1>
