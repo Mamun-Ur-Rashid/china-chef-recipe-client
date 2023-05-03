@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../pages/shared/header/Header';
-import Footer from '../pages/shared/footer/Footer';
-import Home from '../pages/home/Home';
 import { Outlet } from 'react-router-dom';
+import Footer from '../pages/shared/footer/Footer';
 
-const Main = () => {
+
+const ViewChef = () => {
     return (
         <div>
             <Header></Header>
@@ -14,4 +14,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default ViewChef;

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import chefs from '../../assets/chefs.jpg'
+import chefs from '../../assets/chefes.jpg'
+import { Link, useParams } from 'react-router-dom';
 
 const Home = () => {
+    // const {id} =useParams();
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
@@ -19,7 +21,7 @@ const Home = () => {
                 <div>
                     <h1 className='text-5xl font-bold mb-4'>The Fastest <br /> Way to making <br /> of Foods </h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nostrum rem, eligendi sapiente veniam, eos provident voluptatem non ea libero magni exercitationem omnis placeat magnam veritatis sed voluptas quos unde.</p>
-                    <button className="btn btn-active btn-accent mt-4">Details Chef Info</button>
+                    <button className="btn  btn-primary mt-4">Details Chef Info</button>
                 </div>
                 <div>
                     <img src={chefs} alt="" />
@@ -29,14 +31,14 @@ const Home = () => {
                 {
                     allData.map(data => <div key={data.id}>
                         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                            <figure><img src={data.chefPicture} alt="Shoes" /></figure>
+                            <figure><img className='image-2' src={data.chefPicture} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">Chef Name: {data.chefName}</h2>
                                 <p>Experience: {data.yearsOfExperience} Years</p>
                                 <p>Number of Recipes: {data.numberOfRecipes}</p>
                                 <p>Rating: {data.rating}</p>
                                 <div className="card-actions">
-                                    <button className="btn btn-primary w-full justify-center">View Recipes</button>
+                                    <button className="btn btn-primary w-full justify-center"><Link to={`/chefRecipeDetails/${data.id}`}>View Recipes</Link></button>
                                 </div>
                             </div>
                         </div>

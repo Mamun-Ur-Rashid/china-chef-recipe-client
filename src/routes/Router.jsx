@@ -4,6 +4,9 @@ import Main from '../layouts/Main';
 import Home from '../pages/home/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
+import ViewChef from '../layouts/ViewChef';
+import ChefRecipeDetails from '../pages/chefDetails/ChefRecipeDetails';
+import ErrorPage from '../pages/errorPage/ErrorPage';
 
 
 
@@ -11,6 +14,7 @@ import Login from '../pages/Login';
         {
             path:'/',
             element: <Main></Main>,
+            // element: <ErrorPage></ErrorPage>,
             children:[
                 {
                     path:'/',
@@ -23,6 +27,18 @@ import Login from '../pages/Login';
                 {
                     path:'/login',
                     element: <Login></Login>
+                }
+            ]
+        },
+        {
+            path:'chefRecipeDetails',
+            element: <ViewChef></ViewChef>,
+            // element: <ErrorPage></ErrorPage>,
+            children:[
+                {
+                    path:':id',
+                    element: <ChefRecipeDetails></ChefRecipeDetails>,
+                    loader: ({params}) => fetch(`http://localhost:5000/allData/${params.id}`)
                 }
             ]
         }

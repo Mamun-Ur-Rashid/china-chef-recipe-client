@@ -21,3 +21,9 @@
   .default{
     @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-cyan-600
   }
+  .image-2{
+    @apply h-80 w-96 p-7
+  }
+  .cart{
+    @apply h-60 w-9/12 mx-auto
+  }
