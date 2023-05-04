@@ -43,7 +43,7 @@ import PrivateRouter from './PrivateRouter';
                 {
                     path:':id',
                     element: <PrivateRouter><ChefRecipeDetails></ChefRecipeDetails></PrivateRouter>,
-                    loader: ({params}) => fetch(`http://localhost:5000/allData/${params.id}`)
+                    loader: ({params}) => fetch(`https://china-chef-recipe-house-server-mamun-ur-rashid.vercel.app/allData/${params.id}`)
                 }
             ]
         }

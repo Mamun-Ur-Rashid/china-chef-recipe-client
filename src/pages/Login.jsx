@@ -27,7 +27,7 @@ const Login = () => {
             console.log(loginUser);
             setSuccess("User Successfully login!!");
             navigate(from, {replace: true});
-            updateProfile(result.loginUser);
+            // updateProfile(result.loginUser);
             form.reset();
 
         })

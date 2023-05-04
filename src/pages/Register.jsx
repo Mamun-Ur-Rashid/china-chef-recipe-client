@@ -7,10 +7,20 @@ import app from '../firebase/firebase.config';
 
 const Register = () => {
     const  auth = getAuth(app);
-    const { createUser , user, profileUpdate} = useContext(AuthContext);
+    const { createUser , loading} = useContext(AuthContext);
     const [registerError, setRegisterError ] = useState("");
     const [success, setSuccess] = useState("");
-    
+    if(loading){
+        return <Circles
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    }
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -37,7 +47,7 @@ const Register = () => {
                 setSuccess("User Account Created Successfully!!"); 
                 if(loggedUser){
                     updateProfile(loggedUser,{
-                        displayName: "Asiqur Rahman",
+                        displayName: "Asiqur Rahaman",
                         photoURL:"https://i.ibb.co/YkP8m4L/profile.webp"
                     })
                 }

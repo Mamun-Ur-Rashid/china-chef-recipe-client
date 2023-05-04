@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='my-container'>
-            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl'>
+        <div className='my-container bg-slate-200'>
+            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl bg-cyan-200 text-black'>
                 <p>Question: Tell us the difference between uncontrolled and controlled components?</p><br />
                 <p className='text-start'>
                     Ans: In a controlled component react, state handles all the form data, whereas, in an uncontrolled component, the HTML form element data is managed by only th Dom. if you are using a controlled component, you are in control of your form input values. <br />
@@ -22,7 +22,7 @@ const Blog = () => {
                 </p>
 
             </div>
-            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl'>
+            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl bg-cyan-200 text-black'>
                 <p>Question: How to validate react props using propTypes?</p><br />
                 <p className='text-start'>
                     Ans: Props and propTypes are important mechanisms for passing read-only attributes between React components.We can use react props, short for properties, to send data from one component to another. if a component receives the wrong type of props, it can cause bugs and unexpected errors in your app.
@@ -31,7 +31,7 @@ const Blog = () => {
                 </p>
 
             </div>
-            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl'>
+            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl bg-cyan-200 text-black'>
                 <p>Question: Tell us the difference between node js and express js?</p><br />
                 <p className='text-start'>
                     Ans: Node.js: <br /> 1. Node.js is a server side runtime environment that allows developers to run JavaScript cod on the server. it provides a powerful set of built-in modules for file I/O , networking, and other low-level operations, as well as a rich ecosystem of third-party modules. <br />
@@ -45,7 +45,7 @@ const Blog = () => {
                 </p>
 
             </div>
-            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl'>
+            <div className='w-9/12 text-center shadow-xl p-9 mx-auto mb-6 rounded-xl bg-cyan-200 text-black'>
                 <p>Question: What is custom hook and why will you create a custom hook?</p><br />
                 <p className='text-start'>
                     Ans: React custom Hook is a function that starts with the word "use" and may call other Hooks. The "useWhatever" naming convention mainly allows the linter to find bugs in how these hooks are used, for example, scenarios where their usage goes against the rules of hooks.
