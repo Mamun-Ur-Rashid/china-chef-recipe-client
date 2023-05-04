@@ -15,7 +15,7 @@
   }
   
   .active{
-    @apply font-medium tracking-wide text-cyan-600 transition-colors duration-200
+    @apply font-medium tracking-wide text-cyan-950 transition-colors duration-200
   }
   
   .default{

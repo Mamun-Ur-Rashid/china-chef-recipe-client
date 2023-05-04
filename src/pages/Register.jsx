@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../firebase/firebase.config';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const  auth = getAuth(app);
+    const { createUser , user, profileUpdate} = useContext(AuthContext);
     const [registerError, setRegisterError ] = useState("");
     const [success, setSuccess] = useState("");
     
@@ -13,10 +16,10 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photo_url = form.photo.value;
+        const photoUrl = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo_url, email, password);
+        console.log(name, photoUrl, email, password);
        
     
         setSuccess("")
@@ -31,13 +34,17 @@ const Register = () => {
             const  loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
-                setSuccess("User Account Created Successfully!!");
-                
+                setSuccess("User Account Created Successfully!!"); 
+                if(loggedUser){
+                    updateProfile(loggedUser,{
+                        displayName: "Asiqur Rahman",
+                        photoURL:"https://i.ibb.co/YkP8m4L/profile.webp"
+                    })
+                }
             })
             .catch(error => {
                 console.log(error);
             })
-         
     }
     return (
         <div>
@@ -58,7 +65,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" required />
+                                <input type="text" name='url' placeholder="Photo URL" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">

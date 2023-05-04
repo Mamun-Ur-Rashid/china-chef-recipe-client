@@ -16,7 +16,7 @@ import PrivateRouter from './PrivateRouter';
         {
             path:'/',
             element: <Main></Main>,
-            // element: <ErrorPage></ErrorPage>,
+            errorElement: <ErrorPage></ErrorPage>,
             children:[
                 {
                     path:'/',
@@ -39,7 +39,6 @@ import PrivateRouter from './PrivateRouter';
         {
             path:'chefRecipeDetails',
             element: <ViewChef></ViewChef>,
-            // element: <ErrorPage></ErrorPage>,
             children:[
                 {
                     path:':id',

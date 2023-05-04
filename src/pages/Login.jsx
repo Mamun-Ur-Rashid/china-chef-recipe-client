@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FaGoogle, FaGithub} from 'react-icons/fa';
 import { AuthContext } from '../context/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Login = () => {
     const {signInUser,signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate('')
+    const location = useLocation();
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const from =location.state?.from?.pathname || '/';
 
     const handleSignIn = (event) => {
         event.preventDefault();
@@ -23,8 +26,10 @@ const Login = () => {
             const loginUser = result.user;
             console.log(loginUser);
             setSuccess("User Successfully login!!");
-            navigate('/');
+            navigate(from, {replace: true});
+            updateProfile(result.loginUser);
             form.reset();
+
         })
         .catch(error => {
             console.log(error.message);
