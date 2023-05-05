@@ -1,6 +1,6 @@
 
 
-# Leo Ginyro Recipe House
+# Leo Ginyro Recipe
 
 It is a Leo Ginyro Recipe House Website.A lots of food cocking in our house and served the food.
 
