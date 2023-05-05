@@ -7,9 +7,10 @@ import app from '../firebase/firebase.config';
 
 const Register = () => {
     const  auth = getAuth(app);
-    const { createUser , loading} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const [registerError, setRegisterError ] = useState("");
     const [success, setSuccess] = useState("");
+    const [loading , setLoading] =useState(false);
     if(loading){
         return <Circles
         height="80"
@@ -25,17 +26,17 @@ const Register = () => {
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const displayName = form.name.value;
         const photoUrl = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoUrl, email, password);
+        console.log(displayName, photoUrl, email, password);
        
     
         setSuccess("")
         setRegisterError('');
         if(password.length < 6 ){
-            setError("The password is less then 6 characters!!")
+            setRegisterError("The password is less then 6 characters!!")
         }
         
 
@@ -45,15 +46,24 @@ const Register = () => {
                 console.log(loggedUser);
                 form.reset();
                 setSuccess("User Account Created Successfully!!"); 
+                setLoading(true)
                 if(loggedUser){
                     updateProfile(loggedUser,{
                         displayName: "Asiqur Rahaman",
                         photoURL:"https://i.ibb.co/YkP8m4L/profile.webp"
                     })
+                    .then(() =>{
+                        console.log("User profile updated")
+                    })
+                    .catch(error =>{
+                        console.log(error);
+                        setRegisterError(error.message)
+                    })
                 }
             })
             .catch(error => {
                 console.log(error);
+                setRegisterError(error.message)
             })
     }
     return (

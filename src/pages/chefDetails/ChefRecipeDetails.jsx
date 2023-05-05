@@ -1,8 +1,10 @@
+import { Rating } from '@smastrom/react-rating';
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '@smastrom/react-rating/style.css'
 
 const ChefRecipeDetails = () => {
     const [disabled, setDisabled] = useState(true);
@@ -13,10 +15,10 @@ const ChefRecipeDetails = () => {
     // console.log(recipes.map(recipe =>console.log(recipe)))
 
     // add to favorite button function
-    const addToFavorite =(id) =>{
+    const addToFavorite = (id) => {
         setDisabled(false);
         toast("Successfully added!!");
-    
+
 
     }
 
@@ -29,31 +31,43 @@ const ChefRecipeDetails = () => {
                     <p>Chef Description: {chefDescription}</p>
                     <p>Number of Recipes: {numberOfRecipes}</p>
                     <p>Experience: {yearsOfExperience} years</p>
-                    <p>Rating: {rating}</p>
+                    <div className='flex justify-start items-center gap-2'>
+                        <Rating
+                            style={{ maxWidth: 150 }}
+                            value={Math.round(rating) || 0} readOnly>
+                        </Rating>
+                        <span>{rating}</span>
+                    </div>
                 </div>
             </div>
             <div className='mt-8'>
                 <h4 className=' font-bold text-center text-2xl mb-4'>My Own made recipes,  it's made in organic ingredients.It's Food very Tasty. <br /> <small className='text-center text-4xl text-cyan-300'>WellCome My Recipe House!!</small></h4>
                 <div className='grid md:grid-cols-3 gap-5'>
-                {
-                    recipes.map(recipe => <div key={recipe.id} >
-                        <div className="card card-compact w-96 bg-cyan-300 shadow-xl">
-                            <figure><img className='image-2' src={recipe.img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{recipe.recipeName}</h2>
-                                <p>Ingredients: {recipe.ingredients}</p>
-                                <p>Method of cocking: {recipe.methodOfCooking}</p>
-                                <p>Rating: {recipe.rating}</p>
-                                <button disabled={!disabled} onClick={() =>addToFavorite(recipe.id)} className=' justify-start' ><FaHeart className='text-red-600 text-3xl'></FaHeart></button>
+                    {
+                        recipes.map(recipe => <div key={recipe.id} >
+                            <div className="card card-compact w-96 bg-cyan-300 shadow-xl">
+                                <figure><img className='image-2' src={recipe.img} alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{recipe.recipeName}</h2>
+                                    <p>Ingredients: {recipe.ingredients}</p>
+                                    <p>Method of cocking: {recipe.methodOfCooking}</p>
+                                    <div className='flex justify-start items-center gap-2'>
+                                        <Rating
+                                            style={{ maxWidth: 150 }}
+                                            value={Math.round(recipe.rating) || 0} readOnly>
+                                        </Rating>
+                                        <span>{recipe.rating}</span>
+                                    </div>
+                                    <button disabled={!disabled} onClick={() => addToFavorite(recipe.id)} className=' justify-start' ><FaHeart className='text-red-600 text-3xl'></FaHeart></button>
+                                </div>
                             </div>
-                        </div>
-                    </div>)
-                }
+                        </div>)
+                    }
                 </div>
             </div>
             <ToastContainer position='top-center'></ToastContainer>
         </div>
-       
+
     );
 };
 

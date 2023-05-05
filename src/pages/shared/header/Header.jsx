@@ -17,7 +17,7 @@ const Header = () => {
         <div className='navbar relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4 bg-cyan-300 rounded-xl '>
             <nav className='flex justify-between items-center sm:px-3 h-[40px]'>
                 <Link to='/'> <div className='md:mr-20 lg:mr-48'>
-                    <h1 className='text-3xl font-bold'>Leo Ginyro Recipe</h1>
+                    <h1 className='text-3xl font-bold'>Leo<small className='text-5xl text-cyan-800'>Ginyro</small>Recipe</h1>
                 </div></Link>
                 <div className='md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[60%] md:w-auto px-5'>
                     <ul className='flex md:flex-row flex-col md:items-center gap-[4vw] text-xl'>
