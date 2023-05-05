@@ -27,7 +27,7 @@ const Home = () => {
                 <div>
                     <h1 className='text-5xl font-bold mb-4 '>The Fastest <br /> Way to making <br /> of Foods </h1>
                     <p>Preface your recipe with a short intro that shows readers your personal relationship to this dish. For example, write why it's important and what occasion it could be cooked/baked on. This is also a good section to state how many the recipe serves, the prep time, and the overall cook time</p>
-                    <button className="btn  btn-primary mt-4">Details Chef Info</button>
+                    <button className="btn-grad mt-4">Details Chef Info</button>
                 </div>
                 <div>
                     <img className='' src={chefs} alt="" />
@@ -54,7 +54,7 @@ const Home = () => {
                                     <span>{data.rating}</span>
                                 </div>
                                 <div className="card-actions">
-                                    <button className="btn btn-primary w-full justify-center"><Link to={`/chefRecipeDetails/${data.id}`}>View Recipes</Link></button>
+                                    <button className="btn-grad w-full justify-center"><Link to={`/chefRecipeDetails/${data.id}`}>View Recipes</Link></button>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ const Home = () => {
 
                 </div>
                 <div>
-                    <h4 className='text-center text-3xl font-bold text-gray-800'>Recipe Categories</h4>
+                    <h4 className='text-center text-3xl font-bold text-gray-800'>Recipe Menu</h4>
                     <div className='grid md:grid-cols-2 m-5 p-4'>
                         <div>
                             <p><a className="link link-hover">Kung Pao Chicken</a></p>
@@ -99,7 +99,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className='mt-12'>
+            <section className='mt-12 border-4 p-2 bg-gray-300'>
                 <div className=''>
                     <h2 className='text-center text-4xl text-cyan-500 font-bold mb-4'>Customer Reviews</h2>
                     <div className="carousel w-full">

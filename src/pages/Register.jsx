@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
+import { Circles } from 'react-loader-spinner';
 
 const Register = () => {
     const  auth = getAuth(app);
-    const { createUser } = useContext(AuthContext);
+    const { createUser , loading} = useContext(AuthContext);
     const [registerError, setRegisterError ] = useState("");
     const [success, setSuccess] = useState("");
-    const [loading , setLoading] =useState(false);
     if(loading){
         return <Circles
         height="80"
@@ -46,7 +46,6 @@ const Register = () => {
                 console.log(loggedUser);
                 form.reset();
                 setSuccess("User Account Created Successfully!!"); 
-                setLoading(true)
                 if(loggedUser){
                     updateProfile(loggedUser,{
                         displayName: "Asiqur Rahaman",

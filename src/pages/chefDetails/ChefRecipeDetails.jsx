@@ -42,11 +42,11 @@ const ChefRecipeDetails = () => {
             </div>
             <div className='mt-8'>
                 <h4 className=' font-bold text-center text-2xl mb-4'>My Own made recipes,  it's made in organic ingredients.It's Food very Tasty. <br /> <small className='text-center text-4xl text-cyan-300'>WellCome My Recipe House!!</small></h4>
-                <div className='grid md:grid-cols-3 gap-5'>
+                <div className='grid md:grid-cols-4 gap-3'>
                     {
                         recipes.map(recipe => <div key={recipe.id} >
-                            <div className="card card-compact w-96 bg-cyan-300 shadow-xl">
-                                <figure><img className='image-2' src={recipe.img} alt="Shoes" /></figure>
+                            <div className="card card-compact w-70 bg-cyan-300 shadow-xl">
+                                <figure><img className='image-1' src={recipe.img} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{recipe.recipeName}</h2>
                                     <p>Ingredients: {recipe.ingredients}</p>
